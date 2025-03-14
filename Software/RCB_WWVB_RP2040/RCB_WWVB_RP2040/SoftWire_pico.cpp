@@ -19,6 +19,8 @@ void SoftWire::sdaLow(const SoftWire *p)
   {
     digitalWrite(sda, LOW);
     pinMode(sda, OUTPUT);
+    digitalWrite(sda, LOW);
+    
   }
 }
 
@@ -38,6 +40,7 @@ void SoftWire::sclLow(const SoftWire *p)
   {
     digitalWrite(scl, LOW);
     pinMode(scl, OUTPUT);
+    digitalWrite(scl, LOW);    
   }
 }
 

@@ -198,23 +198,44 @@ void onDpllI2CScan(EmbeddedCli *cli, char *args, void *context)
 {
   Serial.println("Starting scan of DPLL I2C bus");
 
-  for (uint8_t addr = 1; addr <= 0x7f; addr++) {
-    delayMicroseconds(50);
+  for ( int i = 0; i < 10; i++ )
+  {
 
-    uint8_t startResult = cm_i2c.llStart((addr << 1) + 1); // Signal a read
-    cm_i2c.stop();
 
-    if (startResult == 0) {
-      Serial.print("\rDevice found at 0x");
-      Serial.println(addr, HEX);
-      Serial.flush();
+    Serial.println("Scan start!");
+
+    /*
+
+
+    //uint8_t startResult = cm_i2c.llStart((0x58 << 1) + 1); // Signal a read
+    //cm_i2c.stop();
+    pinMode(2,OUTPUT);
+    for ( int j = 0; j < 100; j++ ){
+      digitalWrite(2, 0); // 2 = sda , 3 = scl on the board hopefully
+      delay(1);
+      digitalWrite(2,1);
+      delay(1);
     }
+    delay(1000);
+    continue;
+    */
+    for (uint8_t addr = 1; addr <= 0x7f; addr++) {
+      delayMicroseconds(50);
 
-    delay(50);
+      uint8_t startResult = cm_i2c.llStart((addr << 1) + 1); // Signal a read
+      cm_i2c.stop();
+
+      if (startResult == 0) {
+        Serial.print("\rDevice found at 0x");
+        Serial.println(addr, HEX);
+        Serial.flush();
+      }
+
+      delay(50);
+    }
+    delay(500);
   }
   Serial.println("Finished");
-
-
 }
 
 void onDpllWrite(EmbeddedCli *cli, char *args, void *context)
