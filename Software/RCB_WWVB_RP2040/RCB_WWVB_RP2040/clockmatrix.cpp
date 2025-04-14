@@ -2,7 +2,13 @@
 #include "clockmatrix.h"
 
 
-static SoftWire cm_i2c(2, 3);
+#define DPLL_SPI_CS 9
+#define DPLL_SPI_SCK 3
+#define DPLL_SPI_SDIO 2
+#define DPLL_SPI_SDI 11
+
+
+static SoftWire cm_i2c(D2,D3);
 static uint8_t i2c_tx_buf[32];
 static uint8_t i2c_rx_buf[32];
 
@@ -19,6 +25,57 @@ void dpll_control_reset(bool reset_pin_val)
   digitalWrite(17, reset_pin_val);
   pinMode(17, OUTPUT);
   digitalWrite(17, reset_pin_val);
+}
+
+bool dpll_read_reg_spi(uint16_t baseaddr, uint16_t offset, uint8_t * val)
+{
+  uint16_t full_addr;
+  uint8_t baseaddr_lower;
+  uint8_t baseaddr_upper;
+  uint8_t num_read = 0;
+
+
+
+  full_addr = baseaddr + offset;
+  baseaddr_lower = (uint8_t)(full_addr & 0xff);
+  baseaddr_upper = (uint8_t)((full_addr >> 8) & 0xff);
+
+
+
+  if ( cur_dpll_base_addr != baseaddr_upper || 1 ) {
+    // write base address, DPLL slave addr -> 0xfc -> baseaddr_lower -> baseaddr_upper -> 0x10 -> 0x20
+    cm_i2c.beginTransmission(dpll_addr);
+    cm_i2c.write(0xfc);
+    cm_i2c.write(baseaddr_lower);
+    cm_i2c.write(baseaddr_upper);
+    cm_i2c.write(0x10);
+    cm_i2c.write(0x20);
+    if ( cm_i2c.endTransmission() != 0x0 ) {
+      Serial.println("Failed to write baseaddr to DPLL in DPLL write!");
+      return 0;
+    }
+    //Serial.println("DPLL read , set base address successfully");
+    cur_dpll_base_addr = baseaddr_upper;
+    delayMicroseconds(5);
+  }
+  // read register
+  // DPLL slave addr -> baseaddr_lower -> DPLL slave addr request -> value
+  cm_i2c.beginTransmission(dpll_addr);
+  cm_i2c.write(baseaddr_lower);
+  cm_i2c.endTransmission(false);
+  delayMicroseconds(5);
+
+  num_read = cm_i2c.requestFrom(dpll_addr,1);
+  if ( num_read == 0 ) {
+    Serial.println("Failed to read 1 byte from DPLL");
+    return 0;
+  }
+  if ( val != 0 ) {
+    *val = (uint8_t) cm_i2c.read(); // read the 1 byte out
+  }
+  
+  //Serial.println("DPLL read success");
+  return 1;
 }
 
 bool dpll_read_reg(uint16_t baseaddr, uint16_t offset, uint8_t * val)
@@ -764,7 +821,8 @@ void init_clockmatrix()
   cm_i2c.setRxBuffer(i2c_rx_buf, 32);
   cm_i2c.begin();
 
-  // clock matrix i2c is at 0x58
+  // clock matrix i2c is at 0x58 -> Not working on WWVB V1 board!
+
 
 
   // expose DPLL CLI
