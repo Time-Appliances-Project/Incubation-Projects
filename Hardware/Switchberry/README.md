@@ -1,5 +1,5 @@
 # Switchberry
-## Raspberry Pi CM4 Managed 1G Ethernet Switch
+## Raspberry Pi CM4 Managed 1G Ethernet Switch with PTP Support
 
 <img width="916" height="721" alt="Screenshot 2025-12-21 at 7 49 47 PM" src="https://github.com/user-attachments/assets/8f6e8cbc-ecd7-4e3c-9f26-aff695999580" />
 
