@@ -1,4 +1,7 @@
-# Raspberry Pi CM4 Managed 1G Ethernet Switch PCB
+# Switchberry
+## Raspberry Pi CM4 Managed 1G Ethernet Switch
+
+<img width="916" height="721" alt="Screenshot 2025-12-21 at 7 49 47 PM" src="https://github.com/user-attachments/assets/8f6e8cbc-ecd7-4e3c-9f26-aff695999580" />
 
 This repository contains the design files and documentation for a custom PCB based on the Raspberry Pi Compute Module 4 (CM4) as the host CPU. The PCB integrates a managed 7-port Gigabit Ethernet switch, exposing various interfaces and peripherals for a versatile and cost-effective 1G network switch with precision time protocol (PTP) capabilities.
 
