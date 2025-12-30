@@ -1,8 +1,6 @@
 # Switchberry (V2) -- Deprecated 
 ## Raspberry Pi CM4 Managed 1G Ethernet Switch with PTP Support
 
-<img width="999" height="657" alt="PNG image" src="https://github.com/user-attachments/assets/42df475b-2fe9-462f-92c0-70f97fde4533" />
-
 This repository contains the design files and documentation for a custom PCB based on the Raspberry Pi Compute Module 4 (CM4) as the host CPU. The PCB integrates a managed 7-port Gigabit Ethernet switch, exposing various interfaces and peripherals for a versatile and cost-effective 1G network switch with precision time protocol (PTP) capabilities.
 
 ## Overview
