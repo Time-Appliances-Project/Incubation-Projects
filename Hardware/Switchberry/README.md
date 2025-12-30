@@ -1,4 +1,4 @@
-# Switchberry
+# Switchberry (V2) -- Deprecated 
 ## Raspberry Pi CM4 Managed 1G Ethernet Switch with PTP Support
 
 <img width="999" height="657" alt="PNG image" src="https://github.com/user-attachments/assets/42df475b-2fe9-462f-92c0-70f97fde4533" />
