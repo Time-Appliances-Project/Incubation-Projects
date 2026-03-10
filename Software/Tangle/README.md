@@ -321,6 +321,6 @@ That is the core of the prototype.
 ## Authors
 
 The protocol header lists:
-
+- Ahmad Byagowi `<clk@wiwistamp.com>`
 - Lakshmi Pradeep `<lpradeep@meta.com>`
 - Hari Prasad Kalavakunta `<hkalavakunta@meta.com>`
