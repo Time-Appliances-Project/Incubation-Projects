@@ -8,7 +8,7 @@ ptptool: ptptool.o
 	$(CC) -o $@ $^ $(LDFLAGS)
 
 %.o: %.cpp
-	${CC} $(CFLAGS) -o $@ -c $<
+	$(CC) $(CFLAGS) -o $@ -c $<
 
 .PHONY: clean format
 
