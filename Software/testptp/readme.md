@@ -5,10 +5,10 @@ to get testptp independently run the following commands
 cd~
 mkdir testptp
 cd testptp
-wget https://raw.githubusercontent.com/opencomputeproject/Time-Appliance-Project/master/Incubation/Software/testptp/Makefile
-wget https://raw.githubusercontent.com/opencomputeproject/Time-Appliance-Project/master/Incubation/Software/testptp/ptp_clock.h
-wget https://raw.githubusercontent.com/opencomputeproject/Time-Appliance-Project/master/Incubation/Software/testptp/readme.md
-wget https://raw.githubusercontent.com/opencomputeproject/Time-Appliance-Project/master/Incubation/Software/testptp/testptp.c
+wget https://raw.githubusercontent.com/Time-Appliances-Project/Incubation-Projects/refs/heads/master/Software/testptp/Makefile
+wget https://raw.githubusercontent.com/Time-Appliances-Project/Incubation-Projects/refs/heads/master/Software/testptp/ptp_clock.h
+wget https://raw.githubusercontent.com/Time-Appliances-Project/Incubation-Projects/refs/heads/master/Software/testptp/readme.md
+wget https://raw.githubusercontent.com/Time-Appliances-Project/Incubation-Projects/refs/heads/master/Software/testptp/testptp.c
 ```
 Use the following command for compiling:
 ```
