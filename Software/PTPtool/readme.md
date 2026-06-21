@@ -5,8 +5,11 @@ to get PTPtool independently run the following commands
 cd~
 mkdir PTPtool
 cd PTPtool
+wget cd~
+mkdir PTPtool
+cd PTPtool
 wget https://raw.githubusercontent.com/Time-Appliances-Project/Incubation-Projects/tree/master/Software/PTPtool/Makefile
-wget https://raw.githubusercontent.com/Time-Appliances-Project/Incubation-Projects/tree/master//Software/PTPtool/ptptool.cpp
+wget https://raw.githubusercontent.com/Time-Appliances-Project/Incubation-Projects/tree/master/Software/PTPtool/Softwptptool.cpp
 ```
 Use the following command for compiling:
 ```
