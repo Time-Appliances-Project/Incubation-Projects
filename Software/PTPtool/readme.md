@@ -2,10 +2,6 @@ Here is PTPtool to modify the ptp POSIX clock
 
 to get PTPtool independently run the following commands
 ```
-cd~
-mkdir PTPtool
-cd PTPtool
-wget cd~
 mkdir PTPtool
 cd PTPtool
 wget https://raw.githubusercontent.com/Time-Appliances-Project/Incubation-Projects/tree/master/Software/PTPtool/Makefile
