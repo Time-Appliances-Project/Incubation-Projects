@@ -1,5 +1,10 @@
 Here is PTPtool to modify the ptp POSIX clock
 
+First install the dependacies:
+```
+sudo apt-get install libevent-dev
+```
+
 to get PTPtool independently run the following commands
 ```
 mkdir PTPtool
